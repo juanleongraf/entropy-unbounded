@@ -1,0 +1,527 @@
+/* reset */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+button,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	text-decoration: none;
+	color: $color-30;
+	border: none;
+}
+
+
+div,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+button,
+a,
+address,
+cite,
+dfn,
+img,
+ul,
+li,
+form,
+label,
+legend,
+table,
+caption,
+article,
+aside,
+details,
+figcaption {
+	transition: 0.2s;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: normal;
+	text-align: justify;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*:hover,
+*:focus,
+*:active,
+*:visited,
+*:link {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* reset end */
+
+//insert here header height
+$header-height: 60px;
+//insert here header height
+
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+input {
+	text-decoration: none;
+	border: none;
+	font-family: unset;
+	color: unset;
+	width: fit-content;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+body {
+	background-color: $color-60-dim;
+	justify-content: center;
+	font-size: 1rem;
+	line-height: normal;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+//scrollbar
+::-webkit-scrollbar {
+	display: none;
+}
+
+//basic section sizing
+section {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-size: cover;
+	background-position: center;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 50px repeat(3, 1fr) 50px;
+	grid-template-rows: $header-height auto;
+}
+
+//header and navigation
+
+header {
+	background-color: $color-60;
+	border-bottom: solid 1px $color-30a;
+	height: $header-height;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: $header-height;
+
+	* {
+		color: $color-30;
+	}
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 80px;
+	height: $header-height;
+
+	.nav-logo {
+		height: fit-content;
+		width: fit-content;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+
+		a {
+			width: fit-content;
+			height: fit-content;
+			display: flex;
+			align-items: center;
+
+			img {
+				height: calc($header-height - 26px);
+				position: center;
+			}
+		}
+
+		.nav-logotype {
+			display: none;
+		}
+	}
+
+	.nav-menu {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		li {
+			margin-left: 4px;
+		}
+
+		li:last-child {
+			margin-left: 24px;
+		}
+	}
+}
+
+.hamburger {
+	display: none;
+}
+
+@media screen and (min-width: 1024px) {
+	nav {
+		.nav-logo {
+			.nav-logotype {
+				display: flex;
+				width: fit-content;
+				height: fit-content;
+				align-items: center;
+				margin-left: 14px;
+			}
+		}
+	}
+}
+
+//containers
+
+.container80 {
+	max-width: 1600px;
+	width: calc(100vw - 400px);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+}
+
+.rightorbottom {
+	align-items: flex-end;
+}
+
+.leftortop {
+	align-items: flex-start;
+}
+
+.container100 {
+	max-width: 1900px;
+	width: 90vw;
+	background-color: aqua;
+}
+
+
+// headlines and text
+
+.mainHeadline {
+	font-family: $maintypog;
+	letter-spacing: -0.01em;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 3rem;
+}
+
+.mainText {
+	font-size: 1.5rem;
+}
+
+
+//buttons and hyperlinks
+.btn {
+	font-weight: 500;
+	padding: 1.1em;
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
+	border-radius: 1.2em;
+	transition: 0.4s;
+	height: min-content;
+}
+
+.btn:active,
+.btn:hover {
+	transition: 0.2s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn:hover {
+		background-color: $color-30a;
+	}
+}
+
+
+.btn-color-60 {
+	background-color: $color-60;
+	color: $color-30;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-color-60:hover {
+		background-color: $color-30;
+		color: $color-60;
+	}
+}
+
+.btn-color-60:active {
+	background-color: $color-30;
+	color: $color-60;
+}
+
+.btn-color-60-alt {
+	background-color: $color-60;
+	color: $color-30;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-color-60-alt:hover {
+		background-color: $color-10;
+		color: $color-30;
+	}
+}
+
+.btn-color-60-alt:active {
+	background-color: $color-10;
+	color: $color-30;
+}
+
+.btn-color-30 {
+	background-color: $color-30;
+	color: $color-60;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-color-30:hover {
+		background-color: $color-10;
+		color: $color-30;
+	}
+}
+
+.btn-color-30:active {
+	background-color: $color-10;
+	color: $color-30;
+}
+
+.btn-color-30-alt {
+	background-color: $color-30;
+	color: $color-60;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-color-30-alt:hover {
+		background-color: $color-60;
+		color: $color-30;
+	}
+}
+
+.btn-color-30-alt:active {
+	background-color: $color-60;
+	color: $color-30;
+}
+
+.btn-color-10 {
+	background-color: $color-10;
+	color: $color-30;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-color-10:hover {
+		background-color: $color-30;
+		color: $color-60;
+	}
+}
+
+.btn-color-10:active {
+	background-color: $color-30;
+	color: $color-60;
+}
+
+.btn-color-10-alt {
+	background-color: $color-10;
+	color: $color-30;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-color-10-alt:hover {
+		background-color: $color-60;
+		color: $color-30;
+		;
+	}
+}
+
+.btn-color-10-alt:active {
+	background-color: $color-60;
+	color: $color-30;
+}
+
+.hlink {
+	text-decoration: underline;
+	transition: 0.4s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.hlink:hover {
+		color: $color-10;
+	}
+}
+
+
+.hlink-color-10 {
+	text-decoration: underline;
+	transition: 0.4s;
+	color: $color-10;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.hlink-color-10:hover {
+		color: $color-30;
+	}
+}
+
+// elements
+
+
+.card {
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	height: 360px;
+}
