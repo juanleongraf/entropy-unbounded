@@ -15,7 +15,8 @@
         <nav>
             <div class="nav-logo">
                 <a href="../index.html#" class="nav-icon"><img src="../assets/icons/entropy-icon.svg" alt="Icon"></a>
-                <a href="../index.html#" class="nav-logotype"><img src="../assets/icons/entropy-logotype.svg" alt="Entropy"></a>
+                <a href="../index.html#" class="nav-logotype"><img src="../assets/icons/entropy-logotype.svg"
+                        alt="Entropy"></a>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="../index.html" class="btn link">Home</a></li>
@@ -37,19 +38,19 @@
             </h1>
         </div>
 
-        <div>
-            <div class="filter">
+        <div class="filters">
+            <div class="filters__category">
                 <p>Mostrando:</p>
-                <select name="select">
+                <select name="categoria">
                     <option value="value1" selected>Todo</option>
                     <option value="value2">Remeras</option>
                     <option value="value3">Buzos</option>
                     <option value="value3">Pantalones</option>
                 </select>
             </div>
-            <div class="filter">
+            <div class="filters__sort">
                 <p>Ordenando por:</p>
-                <select name="select">
+                <select name="ordenar">
                     <option value="value1" selected>Predeterminado</option>
                     <option value="value2">Mayor precio</option>
                     <option value="value3">Menor precio</option>
@@ -57,20 +58,28 @@
             </div>
         </div>
 
-        <img src="../assets/structure/pantalones.svg" alt="Remeras" class="productos__vertical">
+        <div id="filterImgContainer">
+            <!-- <img src="../assets/structure/pantalones.svg" alt="Remeras" class="productos__vertical--label"> -->
+        </div>
 
-        <div class="productos__grid">
-            <div class="card bg-color-30 product--card scale-on-hover">
+        <div class="productos__grid" id="productosContainer">
+
+            <!-- <div class="card bg-color-60 product--card box-shadow scale-on-hover">
                 <div class="product--card__img">
-                    <img src="" alt="">
+                    <img src="../assets/img/productos/pantalones/pantalon1.webp" alt="">
+                    <p class="color-60 bg-color-30 precio">$5000</p>
                 </div>
                 <div class="product--card__data">
                     <div>
-                        <h3 class="color-60">Pantalón Jogger Negro</h3>
+                        <h3 class="color-30">Joggers Chaos</h3>
+                        <h4 class="color-30">Negro asd asdas</h4>
                     </div>
-                    <a class="btn btn-color-60-alt alcarro">Al carrito</a>
+                    <button class="btn btn-color-30 alcarro">Al carrito</button>
                 </div>
-            </div> 
+            </div> -->
         </div>
     </section>
+    <script src="../js/login.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/productos.js"></script>
 </body>
