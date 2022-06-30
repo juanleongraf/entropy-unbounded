@@ -1,9 +1,11 @@
 @import 'colors';
+@import 'reset';
 @import 'vars';
 @import 'typog';
 @import 'prestyle';
 
 /* Seccion Home */
+
 
 #home1 {
     background: unset;
@@ -44,6 +46,8 @@
     height: 500px;
     width: 100%;
     background-color: $color-30;
+    background-image: url(../assets/structure/separator-waves.svg);
+    background-size: cover;
 
     img {
         max-height: 200px;
@@ -129,8 +133,8 @@
 .cat--card:hover {
     img {
         transform: scale(101%);
-        opacity: 0.6;        
-        filter: saturate(0.5);
+        opacity: 0.3;        
+        mix-blend-mode: luminosity;
         transition: 0.4s;
 
     }
@@ -138,15 +142,34 @@
 
 .cat--card:active {
     transform: scale(98%);
+    h3 {
+        transform: scale(105%);
+    }
 }
 
-//productos
+/* seccion productos */
+
+#productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
 
 .productos__grid {
     display: grid;
     max-width: 1600px;
     min-width: 280px;
     width: 80%;
-    height: fit-content;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.productos__vertical {
+    position: fixed;
+    height: 80%;
+    right: 0;
+    bottom: 50px;
+    opacity: 0.1;
+    z-index: -1;
 }

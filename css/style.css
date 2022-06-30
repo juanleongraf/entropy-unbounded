@@ -1,26 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+.color-60 {
+  color: #ffffff;
 }
 
-html {
-  font-size: 14px;
+.color-60-dim {
+  color: #ebebeb;
+}
+
+.color-30 {
+  color: #0e1213;
+}
+
+.color-30a {
+  color: rgba(13, 17, 18, 0.1019607843);
+}
+
+.color-10 {
+  color: #e29f29;
 }
 
 /* reset */
@@ -199,6 +197,28 @@ table {
 }
 
 /* reset end */
+div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+html {
+  font-size: 14px;
+}
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -263,6 +283,7 @@ header {
   top: 0;
   width: 100%;
   height: 60px;
+  z-index: 10;
 }
 header * {
   color: #0e1213;
@@ -496,12 +517,27 @@ nav .nav-menu li:last-child {
     color: #0e1213;
   }
 }
+.scale-on-hover:hover {
+  transform: scale(101%);
+}
+
 .card {
+  width: 100%;
+  min-width: 260px;
+  height: 500px;
+  border-radius: 5px;
+}
+
+.bg-color-10 {
+  background-color: #e29f29;
+}
+
+.bg-color-30 {
+  background-color: #0e1213;
+}
+
+.bg-color-60 {
   background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 360px;
 }
 
 /* Seccion Home */
@@ -542,6 +578,8 @@ nav .nav-menu li:last-child {
   height: 500px;
   width: 100%;
   background-color: #0e1213;
+  background-image: url(../assets/structure/separator-waves.svg);
+  background-size: cover;
 }
 .separator img {
   max-height: 200px;
@@ -617,13 +655,24 @@ nav .nav-menu li:last-child {
 
 .cat--card:hover img {
   transform: scale(101%);
-  opacity: 0.6;
-  filter: saturate(0.5);
+  opacity: 0.3;
+  mix-blend-mode: luminosity;
   transition: 0.4s;
 }
 
 .cat--card:active {
   transform: scale(98%);
+}
+.cat--card:active h3 {
+  transform: scale(105%);
+}
+
+/* seccion productos */
+#productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .productos__grid {
@@ -631,6 +680,15 @@ nav .nav-menu li:last-child {
   max-width: 1600px;
   min-width: 280px;
   width: 80%;
-  height: fit-content;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.productos__vertical {
+  position: fixed;
+  height: 80%;
+  right: 0;
+  bottom: 50px;
+  opacity: 0.1;
+  z-index: -1;
 }/*# sourceMappingURL=style.css.map */

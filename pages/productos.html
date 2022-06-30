@@ -36,18 +36,41 @@
                 Productos
             </h1>
         </div>
+
+        <div>
+            <div class="filter">
+                <p>Mostrando:</p>
+                <select name="select">
+                    <option value="value1" selected>Todo</option>
+                    <option value="value2">Remeras</option>
+                    <option value="value3">Buzos</option>
+                    <option value="value3">Pantalones</option>
+                </select>
+            </div>
+            <div class="filter">
+                <p>Ordenando por:</p>
+                <select name="select">
+                    <option value="value1" selected>Predeterminado</option>
+                    <option value="value2">Mayor precio</option>
+                    <option value="value3">Menor precio</option>
+                </select>
+            </div>
+        </div>
+
+        <img src="../assets/structure/pantalones.svg" alt="Remeras" class="productos__vertical">
+
         <div class="productos__grid">
-            <div class="product--card">
+            <div class="card bg-color-30 product--card scale-on-hover">
                 <div class="product--card__img">
                     <img src="" alt="">
                 </div>
                 <div class="product--card__data">
                     <div>
-
+                        <h3 class="color-60">Pantalón Jogger Negro</h3>
                     </div>
-                    <button class="btn btn-color-30 alcarro">Al carrito</button>
+                    <a class="btn btn-color-60-alt alcarro">Al carrito</a>
                 </div>
-            </div>
+            </div> 
         </div>
     </section>
 </body>
