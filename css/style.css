@@ -379,12 +379,16 @@ nav .nav-menu li:last-child {
   font-size: 1.5rem;
 }
 
+button {
+  cursor: pointer;
+}
+
 .btn {
   font-weight: 500;
   padding: 1.1em;
   padding-top: 0.6em;
   padding-bottom: 0.6em;
-  border-radius: 1.2em;
+  border-radius: 4px;
   transition: 0.4s;
   height: min-content;
 }
@@ -499,6 +503,23 @@ button {
   color: #0e1213;
 }
 
+#login-btn {
+  background-color: #e29f29;
+  color: #0e1213;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #login-btn:hover {
+    background-color: #ffffff;
+    color: #0e1213;
+    box-shadow: inset 0px 0px 0px 1px #0e1213;
+  }
+}
+#login-btn:active {
+  background-color: #ffffff;
+  color: #0e1213;
+}
+
 .hlink {
   text-decoration: underline;
   transition: 0.4s;
@@ -521,19 +542,19 @@ button {
   }
 }
 .box-shadow:hover {
-  box-shadow: 0px 5px 20px rgba(14, 18, 19, 0.2);
+  box-shadow: 0px 10px 10px -8px rgba(14, 18, 19, 0.4);
 }
 
-.scale-on-hover:hover {
-  transform: scale(101%);
+.translate-on-hover:hover {
+  transform: translate(0, -4px);
 }
-.scale-on-hover:hover .precio {
+.translate-on-hover:hover .precio {
   transform: translate(0, -8px);
 }
 
 .card {
   border: solid 1px #e0e0e0;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .bg-color-10 {
@@ -638,7 +659,7 @@ button {
   background-color: #e29f29;
   overflow: hidden;
   margin: 20px;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .home2__categories__flex .cat--card img {
   max-width: 100%;
@@ -739,9 +760,9 @@ button {
 }
 .product--card .product--card__img .precio {
   margin-left: 10px;
-  padding: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
   position: absolute;
   bottom: -2px;
   left: 0;

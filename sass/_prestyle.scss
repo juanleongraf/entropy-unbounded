@@ -189,12 +189,16 @@ nav {
 
 //buttons and hyperlinks
 
+button {
+	cursor: pointer;
+}
+
 .btn {
 	font-weight: 500;
 	padding: 1.1em;
 	padding-top: 0.6em;
 	padding-bottom: 0.6em;
-	border-radius: 1.2em;
+	border-radius: $elembr;
 	transition: 0.4s;
 	height: min-content;
 }
@@ -318,6 +322,24 @@ button {
 	color: $color-30;
 }
 
+#login-btn {
+	background-color: $color-10;
+	color: $color-30;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	#login-btn:hover {
+		background-color: $color-60;
+		color: $color-30;
+		box-shadow:inset 0px 0px 0px 1px $color-30;
+	}
+}
+
+#login-btn:active {
+	background-color: $color-60;
+	color: $color-30;
+}
+
 .hlink {
 	text-decoration: underline;
 	transition: 0.4s;
@@ -345,11 +367,11 @@ button {
 // elements
 
 .box-shadow:hover {
-	box-shadow: 0px 5px 20px rgba($color: $color-30, $alpha: 0.2);
+	box-shadow: 0px 10px 10px -8px rgba($color: $color-30, $alpha: 0.4);
 }
 
-.scale-on-hover:hover {
-	transform: scale(101%);
+.translate-on-hover:hover {
+	transform: translate(0,-4px);
 	.precio {
 		transform: translate(0,-8px);
 	}
@@ -357,7 +379,7 @@ button {
 
 .card {
 	border:solid 1px $color-30b;
-	border-radius: 5px;
+	border-radius: $elembr;
 }
 
 .bg-color-10 {
