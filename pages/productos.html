@@ -26,7 +26,9 @@
                 <li class="nav-item"><a href="../index.html" class="btn link">Home</a></li>
                 <li class="nav-item"><a href="#" class="btn link">Productos</a></li>
                 <li class="nav-item"><a href="./faqs.html" class="btn link">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="btn btn-color-10" id="login-btn">Ingresar</a></li>
+                <li class="nav-item" id="login-li">
+                    <!-- <a href="#" class="btn" id="login-btn"></a> -->
+                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -35,61 +37,61 @@
         </nav>
     </header>
 
-    <section id="productos">
-
-        <div class="filters">
-            <h1>
-                Productos
-            </h1>
-            <div class="filters__category">
-                <span>Mostrando:</span>
-                <select name="categoria" id="filter">
-                    <option value="todo" selected>Todo</option>
-                    <option value="remera">Remeras</option>
-                    <option value="buzo">Buzos</option>
-                    <option value="pantalon">Pantalones</option>
-                </select>
-            </div>
-            <div class="filters__sort">
-                <span>Ordenando por:</span>
-                <select name="ordenar" id="sort">
-                    <option value="default" selected>Predeterminado</option>
-                    <option value="mayor">Mayor precio</option>
-                    <option value="menor">Menor precio</option>
-                </select>
-            </div>
-        </div>
-
-        <div id="filterTextContainer">
-            <!-- <img src="../assets/structure/pantalones.svg" alt="Remeras" class="productos__vertical--label"> -->
-        </div>
-
-        <div class="productos__grid" id="productosContainer">
-
-            <!-- <div class="card bg-color-60 product--card box-shadow scale-on-hover">
-                <div class="product--card__img">
-                    <img src="../assets/img/productos/pantalones/pantalon1.webp" alt="">
-                    <p class="color-60 bg-color-30 precio">$5000</p>
+    <div class="content" id="cartParent">
+        <section id="productos">
+    
+            <div class="filters">
+                <h1>
+                    Productos
+                </h1>
+                <div class="filters__category">
+                    <span>Mostrando:</span>
+                    <select name="categoria" id="filter">
+                        <option value="todo" selected>Todo</option>
+                        <option value="remera">Remeras</option>
+                        <option value="buzo">Buzos</option>
+                        <option value="pantalon">Pantalones</option>
+                    </select>
                 </div>
-                <div class="product--card__data">
-                    <div>
-                        <h3 class="color-30">Joggers Chaos</h3>
-                        <h4 class="color-30">Negro asd asdas</h4>
+                <div class="filters__sort">
+                    <span>Ordenando por:</span>
+                    <select name="ordenar" id="sort">
+                        <option value="default" selected>Predeterminado</option>
+                        <option value="mayor">Mayor precio</option>
+                        <option value="menor">Menor precio</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div id="filterTextContainer">
+                <!-- <img src="../assets/structure/pantalones.svg" alt="Remeras" class="productos__vertical--label"> -->
+            </div>
+    
+            <div class="productos__grid" id="productosContainer">
+    
+                <!-- <div class="card bg-color-60 product--card box-shadow scale-on-hover">
+                    <div class="product--card__img">
+                        <img src="../assets/img/productos/pantalones/pantalon1.webp" alt="">
+                        <p class="color-60 bg-color-30 precio">$5000</p>
                     </div>
-                    <button class="btn btn-color-30 alcarro">Al carrito</button>
-                </div>
-            </div> -->
-        </div>
+                    <div class="product--card__data">
+                        <div>
+                            <h3 class="color-30">Joggers Chaos</h3>
+                            <h4 class="color-30">Negro asd asdas</h4>
+                        </div>
+                        <button class="btn btn-color-30 alcarro">Al carrito</button>
+                    </div>
+                </div> -->
+            </div>
+    
+        </section>
+        <span class="separator--blank"></span>
+    </div>
 
-        <span class="separator--blank">
-            a
-        </span>
-    </section>
-
-    <script src="../js/cart.js"></script>
+    <script src="../js/productos.js"></script>
     <script src="../js/checkout.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/contacto.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/login.js"></script>
-    <script src="../js/productos.js"></script>
 </body>

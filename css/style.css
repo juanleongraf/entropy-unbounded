@@ -241,7 +241,6 @@ a {
 
 body {
   background-color: #ebebeb;
-  justify-content: center;
   font-size: 1rem;
   line-height: normal;
   height: 100%;
@@ -249,12 +248,18 @@ body {
   margin: 0;
 }
 
+.content {
+  height: 100%;
+  width: 100%;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 section {
-  height: 100%;
+  min-height: 100%;
+  height: fit-content;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -276,7 +281,7 @@ section {
 
 header {
   background-color: #ffffff;
-  border-bottom: solid 1px rgba(13, 17, 18, 0.1019607843);
+  border-bottom: solid 1px #e4e4e4;
   height: 60px;
   position: fixed;
   top: 0;
@@ -391,6 +396,12 @@ button {
   border-radius: 4px;
   transition: 0.4s;
   height: min-content;
+}
+
+.link {
+  padding: 0.8em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
 }
 
 button {
@@ -524,19 +535,50 @@ button {
     color: #0e1213;
   }
 }
+.cart--icon {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 100px;
+  top: 90px;
+  left: 50px;
+  cursor: pointer;
+}
+
+.cart--number {
+  font-size: 1.2rem;
+  text-align: center;
+  position: fixed;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 5;
+  padding: 1px;
+  border-radius: 1.5rem;
+  top: 90px;
+  left: 90px;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #0e1213;
+}
+
 .box-shadow:hover {
-  box-shadow: 0px 10px 10px -8px rgba(14, 18, 19, 0.4);
+  box-shadow: 0px 10px 6px -8px rgba(14, 18, 19, 0.2);
 }
 
 .translate-on-hover:hover {
-  transform: translate(0, -4px);
+  transform: translate(0, -2px);
 }
 .translate-on-hover:hover .precio {
-  transform: translate(0, -8px);
+  transform: translate(0, -6px);
+}
+
+.scale-on-hover:hover {
+  transform: scale(101%);
 }
 
 .card {
-  border: solid 1px #e0e0e0;
+  border: solid 1px #e4e4e4;
   border-radius: 4px;
 }
 
@@ -600,7 +642,7 @@ button {
 
 .separator--blank {
   display: block;
-  height: 500px;
+  height: 200px;
   width: 100%;
 }
 
@@ -622,8 +664,8 @@ button {
 .home2__categories h3 {
   font-family: "Barlow", sans-serif;
   font-size: 5rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
 }
 .home2__categories h3 {
@@ -671,7 +713,6 @@ button {
 }
 
 .cat--card:hover img {
-  transform: scale(100.5%);
   opacity: 0.5;
   mix-blend-mode: luminosity;
   filter: blur(2px);
@@ -699,6 +740,13 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.filters h1 {
+  font-family: "Barlow", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.05em;
 }
 .filters .filters__category, .filters .filters__sort {
   margin: 50px;
@@ -783,4 +831,23 @@ button {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 400;
+}
+
+.cart {
+  background-color: #ffffff;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cart div {
+  display: flex;
+  flex-direction: row;
+}
+.cart .cart__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }/*# sourceMappingURL=style.css.map */
