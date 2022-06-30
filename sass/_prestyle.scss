@@ -322,24 +322,6 @@ button {
 	color: $color-30;
 }
 
-#login-btn {
-	background-color: $color-10;
-	color: $color-30;
-}
-
-@media (hover: hover) and (pointer: fine) {
-	#login-btn:hover {
-		background-color: $color-60;
-		color: $color-30;
-		box-shadow:inset 0px 0px 0px 1px $color-30;
-	}
-}
-
-#login-btn:active {
-	background-color: $color-60;
-	color: $color-30;
-}
-
 .hlink {
 	text-decoration: underline;
 	transition: 0.4s;

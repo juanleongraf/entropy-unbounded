@@ -56,6 +56,12 @@
     }
 }
 
+.separator--blank {
+    display: block;
+    height: 500px;
+    width: 100%;
+}
+
 .home2__categories {
     display: grid;
     grid-template-columns: 10vw 1fr 10vw;
@@ -169,7 +175,7 @@
         margin: 50px;
         display: flex;
         flex-direction: row;
-        p {
+        span {
             margin-right: 10px;
         }
 
@@ -178,11 +184,10 @@
 
 .productos__grid {
     display: grid;
-    max-width: 1600px;
-    width: fit-content;
     min-width: 280px;
-    width: calc(100% - 40px);
-    grid-template-columns: auto auto auto auto;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 300px 300px 300px 300px;
     gap: 30px;
 }
 
@@ -231,12 +236,13 @@
     .product--card__data {
         display: flex;
         width: calc(100% - 40px);
-        height: 110px;
+        height: 60px;
+        margin-bottom: 16px;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         div {
-            max-width: 220px;
+            width: calc(100% - 100px);
         }
 
         h3, h4 {
