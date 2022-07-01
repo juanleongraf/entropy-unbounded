@@ -1,3 +1,10 @@
+//se puede iniciar y cerrar sesion con el mismo boton
+//si se cierra sesion se borra el localStorage
+//se pueden agregar items al carrito desde el boton agregar o sumando desde el mismo carrito
+//poner el contador del item en el carrito en 0 lo remueve del carrito
+//falta agregar un metodo de filtrado para solo mostrar remeras, buzos o pantalones
+//ese filtro tambien debe funcionar si se accede desde el home a "remeras" "buzos" o "pantalones"
+
 const productos = [];
 let filter = document.getElementById('filter');
 let filterValue = 'todo';
@@ -14,6 +21,7 @@ let totalnum = JSON.parse(localStorage.getItem("totalStorage")) || 0;
 let cart = JSON.parse(localStorage.getItem("cartStorage")) || [];
 updateCart();
 
+//constructor de items
 function elemento(id, tipo, nombre, color, url, precio, stock) {
     this.id = id;
     this.tipo = tipo;
@@ -53,9 +61,6 @@ productos.push(new elemento('06', 'pant', 'Jogging Force', 'azul marino', '../as
 productos.push(new elemento('07', 'pant', 'Jogger Kelvin Clain test long text', 'negro', '../assets/img/productos/pantalones/jogger-kelvin.webp', 6900, 10));
 productos.push(new elemento('08', 'pant', 'Jogger Chau Chau', 'verde militar', '../assets/img/productos/pantalones/jogger-chaos.webp', 6700, 3));
 productos.push(new elemento('09', 'pant', 'Jogger Dark Matter', 'azul marino', '../assets/img/productos/pantalones/jogger-matter.webp', 6600, 10));
-
-//array de productos
-let productosSorted = productos;
 
 // const save = (key,value) => {localStorage.setItem(key,value)}
 
@@ -117,11 +122,13 @@ let productosSorted = productos;
 //     }
 // });
 
+//para mostrar todos los items en el html
 let productosContainer = document.getElementById('productosContainer');
+
+//para mostrar imagen que indique el filtro
 let filterTextContainer = document.getElementById('filterTextContainer');
 
-let img = document.createElement('div');
-
+//muestra todos los items en el html
 for (const producto of productos) {
 
     let card = document.createElement('div');
@@ -145,11 +152,21 @@ for (const producto of productos) {
     productosContainer.append(card)
 };
 
+//agregando parte del indicador de filtrado
+filterTextContainer.innerHTML = `<img src="../assets/structure/todo.svg" alt="Todo" class="productos__vertical--label">`
+
+//agrega item al carrito
 function addToCart(id) {
 
+    //si el item ya esta en el carrito
     if (cart.some((item) => item.id == id)) {
+        //suma 1 al mult del item
         changeMult('plus', id)
-    } else {
+    }
+    //si el item no esta en el carrito
+    else {
+
+        //agrega el item nuevo al carrito
         const item = productos.find((productos) => productos.id == id);
         cart.push({
             ...item,
@@ -159,6 +176,7 @@ function addToCart(id) {
     updateCart();
 }
 
+//actualiza el carrito mostrando el total y guardando en localStorage
 function updateCart() {
     renderCartItems();
     renderSuma();
@@ -175,6 +193,7 @@ function renderSuma() {
         totalItems += item.mult
     });
 
+    //guarda en localStorage
     totalnum = total;
     localStorage.setItem("totalStorage", JSON.stringify(totalnum))
     subtotal.innerHTML = `<span class="cart__suma__number">Subtotal: $${total}</span>`
@@ -182,7 +201,7 @@ function renderSuma() {
 
 }
 
-
+//muestra todos los items agregados en el carrito, con su cantidad (mult)
 function renderCartItems() {
     cartContainer.innerHTML = "";
     cart.forEach((item) => {
@@ -199,6 +218,7 @@ function renderCartItems() {
     })
 }
 
+//funcion para sumar o restar el mult de cada item desde el carrito
 function changeMult(op, id) {
     cart = cart.map((item) => {
 
@@ -221,6 +241,8 @@ function changeMult(op, id) {
         };
     });
     updateCart();
+
+    //elimina del carrito el item si tiene mult = 0
     if (remover) {
         removeFromCart(rememberid)
         remover = false;
