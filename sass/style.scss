@@ -273,7 +273,7 @@
     background-color: $color-60;
     z-index: 5;
     width: 800px;
-    height: 100%;
+    height: fit-content;
     margin: auto auto;
     display: grid;
     grid-template-rows: 60px 1fr 60px 60px;
@@ -324,7 +324,7 @@
                     border: solid 1px $color-30b;
                     margin-left: 20px;
                     margin-right: 6px;
-                    img {
+                    .miniImg {
                         width: 100%;
                     }
                 }

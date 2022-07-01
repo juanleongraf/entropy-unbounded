@@ -839,7 +839,7 @@ button {
   background-color: #ffffff;
   z-index: 5;
   width: 800px;
-  height: 100%;
+  height: fit-content;
   margin: auto auto;
   display: grid;
   grid-template-rows: 60px 1fr 60px 60px;
@@ -895,7 +895,7 @@ button {
   margin-left: 20px;
   margin-right: 6px;
 }
-.cart .cart__container .autogrid .productName .cart__img img {
+.cart .cart__container .autogrid .productName .cart__img .miniImg {
   width: 100%;
 }
 .cart .cart__container .autogrid .mult {

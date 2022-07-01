@@ -31,7 +31,7 @@ function openLogin() {
 
     else {
         let userinput = prompt('Ingrese con su nombre de usuario:');
-        let str2 = userinput.charAt(0).toUpperCase() + userinput.slice(1);
+        let str2 = userinput.charAt(0).toUpperCase() + userinput.slice(1).toLowerCase();
         userinput = str2;
         localStorage.setItem("user", userinput);
         document.location.reload()
