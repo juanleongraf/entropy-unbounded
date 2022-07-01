@@ -245,20 +245,22 @@ function clearStorage() {
 //checkout
 checkoutEl.innerHTML = `<button onclick="checkout()">checkout</button>`
 function checkout() {
-    let ctasSiNo = prompt('El total es $' + totalnum + ' \n ¿desea abonar en cuotas? \n Indique "sí" o "no"').toLowerCase();
-    switch (ctasSiNo) {
-        case ('si'):
-        case ('sí'):
-            keepPreCtas = false;
-            cuotas(totalnum);
-            break;
-        case ('no'):
-            keepPreCtas = false;
-            alert('El total es entonces $' + totalnum + '. Gracias por su compra, será redirigido para abonar.')
-            clearStorage();
-            break;
-        default:
-            break;
+    if (totalnum > 0) {
+        let ctasSiNo = prompt('El total es $' + totalnum + ' \n ¿desea abonar en cuotas? \n Indique "sí" o "no"').toLowerCase();
+        switch (ctasSiNo) {
+            case ('si'):
+            case ('sí'):
+                keepPreCtas = false;
+                cuotas(totalnum);
+                break;
+            case ('no'):
+                keepPreCtas = false;
+                alert('El total es entonces $' + totalnum + '. Gracias por su compra, será redirigido para abonar.')
+                clearStorage();
+                break;
+            default:
+                break;
+        }
     }
 }
 
