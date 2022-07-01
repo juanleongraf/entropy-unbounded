@@ -236,6 +236,12 @@ function removeFromCart(id) {
     updateCart();
 }
 
+//vaciador de carrito
+function clearStorage() {
+    cart = [];
+    updateCart();
+}
+
 //checkout
 checkoutEl.innerHTML = `<button onclick="checkout()">checkout</button>`
 function checkout() {
@@ -249,6 +255,7 @@ function checkout() {
         case ('no'):
             keepPreCtas = false;
             alert('El total es entonces $' + totalnum + '. Gracias por su compra, será redirigido para abonar.')
+            clearStorage();
             break;
         default:
             break;
@@ -290,6 +297,7 @@ function cuotas(subtotal) {
                 break;
             default: break;
         }
-        alert('Gracias por su compra! Será redirigido para abonar, y no olvide presionar el otro botoncito que no hace nada!')
+        alert('Gracias por su compra! Será redirigido para abonar.')
+        clearStorage();
     }
 }
