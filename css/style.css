@@ -547,8 +547,10 @@ button {
 }
 
 .cart--number {
-  font-size: 1.2rem;
-  text-align: center;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   width: 1.5rem;
   height: 1.5rem;
@@ -836,18 +838,92 @@ button {
 .cart {
   background-color: #ffffff;
   z-index: 5;
-  width: 100%;
+  width: 800px;
   height: 100%;
+  margin: auto auto;
+  display: grid;
+  grid-template-rows: 60px 1fr 60px 60px;
+  text-align: center;
+}
+.cart .cart--title {
+  grid-row: 1/2;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #0e1213;
 }
-.cart div {
-  display: flex;
-  flex-direction: row;
+.cart .cart--title h3 {
+  color: #ffffff;
 }
-.cart .cart__grid {
+.cart .cart--title h3 span {
+  padding: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 16px;
+  color: #ffffff;
+  background-color: #e29f29;
+}
+.cart .cart__container {
+  grid-row: 2/3;
+}
+.cart .cart__container span {
+  text-align: center;
+}
+.cart .cart__container .autogrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  height: 60px;
+}
+.cart .cart__container .autogrid > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart .cart__container .autogrid .productName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cart .cart__container .autogrid .productName .cart__img {
+  height: 54px;
+  width: 54px;
+  overflow: hidden;
+  border: solid 1px #e4e4e4;
+  margin-left: 20px;
+  margin-right: 6px;
+}
+.cart .cart__container .autogrid .productName .cart__img img {
+  width: 100%;
+}
+.cart .cart__container .autogrid .mult {
+  margin-left: 10px;
+}
+.cart .cart__container .autogrid .mult button {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.cart .flex {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.cart .cart__suma {
+  grid-row: 3/4;
+  background-color: #0e1213;
+}
+.cart .cart__suma span {
+  color: #ffffff;
+}
+.cart .cart__checkout {
+  grid-row: 4/5;
+  background-color: #e29f29;
+}
+.cart .cart__checkout button {
+  background-color: unset;
+  color: #0e1213;
 }/*# sourceMappingURL=style.css.map */

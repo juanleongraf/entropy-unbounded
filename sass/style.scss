@@ -272,19 +272,94 @@
 .cart {
     background-color: $color-60;
     z-index: 5;
-    width: 100%;
+    width: 800px;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    div {
+    margin: auto auto;
+    display: grid;
+    grid-template-rows: 60px 1fr 60px 60px;
+    text-align: center;
+    .cart--title {
+        grid-row: 1/2;
+        font-size: 1.5rem;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-30;
+        h3 {
+            color: $color-60;
+            span {
+                padding: 8px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                border-radius: 16px;
+                color: $color-60;
+                background-color: $color-10;
+            }
+        }
     }
-    .cart__grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+    .cart__container {
+        grid-row: 2/3;
+        span {
+            text-align: center;
+        }
+        .autogrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 60px;
+            >* {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .productName {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                .cart__img {
+                    height: 54px;
+                    width: 54px;
+                    overflow: hidden;
+                    border: solid 1px $color-30b;
+                    margin-left: 20px;
+                    margin-right: 6px;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            .mult {
+                margin-left: 10px;
+                button {
+                    margin-left: 16px;
+                    margin-right: 16px;
+                }
+            }
+        }
 
     }
+    .flex {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .cart__suma {
+        grid-row: 3/4;
+        background-color: $color-30;
+        span {
+            color: $color-60;
+        }
+
+    }
+    .cart__checkout {
+        grid-row: 4/5;
+        background-color: $color-10;
+        button {
+            background-color: unset;
+            color: $color-30;
+        }
+    }     
 }
