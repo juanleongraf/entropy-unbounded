@@ -22,18 +22,54 @@ else {
 
 function openLogin() {
     if (userLStorage) {
-        let salir = confirm("¿Desea cerrar sesión?");
-        if (salir) {
-            localStorage.clear();
-            document.location.reload()
-        }
+        Swal.fire({
+            position: 'top-end',
+            html: '<span>¿Desea cerrar sesión?</span>',
+            footer: 'Su carrito se vaciará al cerrar sesión',
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Obvio Pa',
+            cancelButtonText: 'No',
+            confirmButtonColor: '#e29f29',
+            cancelButtonColor: '#0e1213',
+            backdrop: false,
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                document.location.reload()
+            }
+        })
     }
 
     else {
-        let userinput = prompt('Ingrese con su nombre de usuario:');
-        let str2 = userinput.charAt(0).toUpperCase() + userinput.slice(1).toLowerCase();
-        userinput = str2;
-        localStorage.setItem("user", userinput);
-        document.location.reload()
+
+        (async () => {
+            const { value: userinput } = await Swal.fire({
+                position: 'top-end',
+                html: '<span>Ingrese con su numbre de usuario</span>',
+                input: 'text',
+                inputPlaceholder: 'Nombre',
+                inputAttributes: {
+                    autocapitalize: 'on'
+                },
+                showConfirmButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Ingresar',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#e29f29',
+                cancelButtonColor: '#0e1213',
+                backdrop: false,
+                allowOutsideClick: false
+            })
+            if (userinput) {
+                let str2 = userinput.charAt(0).toUpperCase() + userinput.slice(1).toLowerCase();
+                localStorage.setItem("user", str2);
+                document.location.reload()
+            }
+        })()
+
+
+
     }
 }

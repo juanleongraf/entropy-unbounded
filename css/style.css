@@ -253,10 +253,6 @@ body {
   width: 100%;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 section {
   min-height: 100%;
   height: fit-content;
@@ -457,13 +453,11 @@ button {
 
 @media (hover: hover) and (pointer: fine) {
   .btn-color-30:hover {
-    background-color: #e29f29;
-    color: #0e1213;
+    background-color: #3d4041;
   }
 }
 .btn-color-30:active {
-  background-color: #e29f29;
-  color: #0e1213;
+  background-color: #3d4041;
 }
 
 .btn-color-30-alt {
@@ -582,6 +576,7 @@ button {
 .card {
   border: solid 1px #e4e4e4;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .bg-color-10 {
@@ -594,6 +589,13 @@ button {
 
 .bg-color-60 {
   background-color: #ffffff;
+}
+
+.swal2-popup {
+  font-family: "Roboto", sans-serif !important;
+  color: #0e1213;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
 }
 
 /* Seccion Home */
@@ -852,17 +854,20 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0e1213;
 }
 .cart .cart--title h3 {
-  color: #ffffff;
+  font-family: "Barlow", sans-serif;
+  text-transform: uppercase;
+  color: #0e1213;
+  font-weight: 700;
 }
 .cart .cart--title h3 span {
+  font-weight: 700;
   padding: 8px;
+  font-size: 1.2rem;
   padding-top: 2px;
   padding-bottom: 2px;
   border-radius: 16px;
-  color: #ffffff;
   background-color: #e29f29;
 }
 .cart .cart__container {

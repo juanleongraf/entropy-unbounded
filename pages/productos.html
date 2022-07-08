@@ -27,7 +27,7 @@
                 <li class="nav-item"><a href="#" class="btn link">Productos</a></li>
                 <li class="nav-item"><a href="./faqs.html" class="btn link">FAQs</a></li>
                 <li class="nav-item" id="login-li">
-                    <!-- <a href="#" class="btn" id="login-btn"></a> -->
+                    <!-- aqui el boton para loguearse en JS -->
                 </li>
             </ul>
             <div class="hamburger">
@@ -64,31 +64,19 @@
             </div>
     
             <div id="filterTextContainer">
-                <!-- <img src="../assets/structure/pantalones.svg" alt="Remeras" class="productos__vertical--label"> -->
+                <!-- aqui la imagen del filtro de productos en JS -->
             </div>
     
             <div class="productos__grid" id="productosContainer">
     
-                <!-- <div class="card bg-color-60 product--card box-shadow scale-on-hover">
-                    <div class="product--card__img">
-                        <img src="../assets/img/productos/pantalones/pantalon1.webp" alt="">
-                        <p class="color-60 bg-color-30 precio">$5000</p>
-                    </div>
-                    <div class="product--card__data">
-                        <div>
-                            <h3 class="color-30">Joggers Chaos</h3>
-                            <h4 class="color-30">Negro asd asdas</h4>
-                        </div>
-                        <button class="btn btn-color-30 alcarro">Al carrito</button>
-                    </div>
-                </div> -->
+                <!-- aqui la lista de productos en JS -->
             </div>
     
         </section>
         <span class="separator--blank"></span>
-        <div class="cart">
+        <div class="cart card" id="cart">
             <div class="cart--title"><h3 id="carrito">
-                <!-- Carrito: <span>2</span> -->
+                <!-- aqui el titulo del carrito con la cantidad de productos en JS -->
             </h3></div>
             <div class="cart__container">
                 <div class="autogrid">
@@ -98,33 +86,22 @@
                 </div>
                 <div id="cartContainer">
                     <div class="autogrid" id="cartItem1">
-                        <!-- <div class="productName">
-                            <div class="cart__img">
-                                <img src="../assets/img/productos/pantalones/jogger-chaos.webp" alt="">
-                            </div>
-                            <span>Remera</span>
-                        </div>
-                        <span class="price">3000</span>
-                        <span class="mult"><button class="substract">-</button>2<button class="add">+</button></span>  -->
+                        <!-- aqui cada producto del carrito  en JS -->
                     </div>
                 </div>
             </div>
             <div class="flex cart__suma" id="subtotal">
-                <!-- <span class="cart__suma__number">Subtotal: $3000</span> -->
+                <!-- aqui el subtotal en JS -->
             </div>
             <div class="flex cart__checkout" id="checkout">
-                <!-- <button onclick="checkout()">checkout</button> -->
+                <!-- aqui el boton para ir a checkout en JS -->
             </div>
             <div></div>
         </div>
         <span class="separator--blank"></span>
     </div>
-
-
     <script src="../js/productos.js"></script>
-    <script src="../js/checkout.js"></script>
-    <!-- <script src="../js/cart.js"></script> -->
-    <script src="../js/contacto.js"></script>
-    <script src="../js/index.js"></script>
     <script src="../js/login.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script> src="../js/alerts.js"</script>
 </body>

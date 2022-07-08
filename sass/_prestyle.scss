@@ -38,11 +38,6 @@ body {
 	width: 100%;
 }
 
-//scrollbar
-::-webkit-scrollbar {
-	display: none;
-}
-
 //basic section sizing
 section {
 	min-height: 100%;
@@ -272,14 +267,12 @@ button {
 
 @media (hover: hover) and (pointer: fine) {
 	.btn-color-30:hover {
-		background-color: $color-10;
-		color: $color-30;
+		background-color: $color-30hl;
 	}
 }
 
 .btn-color-30:active {
-	background-color: $color-10;
-	color: $color-30;
+	background-color: $color-30hl;
 }
 
 .btn-color-30-alt {
@@ -409,6 +402,7 @@ $cart-size: 40px;
 .card {
 	border:solid 1px $color-30b;
 	border-radius: $elembr;
+	overflow: hidden;
 }
 
 .bg-color-10 {
@@ -422,3 +416,12 @@ $cart-size: 40px;
 .bg-color-60 {
 	background-color: $color-60;
 }
+
+//sweetalert2
+
+.swal2-popup {
+	font-family: 'Roboto', sans-serif !important;
+	color: #0e1213;
+	border: 1px solid #e4e4e4;
+	border-radius: 5px;
+  }
