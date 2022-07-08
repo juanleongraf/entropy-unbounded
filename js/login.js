@@ -9,7 +9,7 @@ loginBtn.addEventListener('click', openLogin);
 
 if (userLStorage) {
     user = userLStorage;
-    loginBtn.classList.add('btn-color-30-alt');
+    loginBtn.classList.add('btn-color-30');
     loginBtn.innerHTML = `${user}`;
     loginLi.append(loginBtn);
 }

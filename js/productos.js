@@ -65,66 +65,6 @@ productos.push(new productBones('22', 'pant', 'Jogger Kelvin Clain test long tex
 productos.push(new productBones('23', 'pant', 'Jogger Chau Chau', 'bordó', '../assets/img/productos/pantalones/jogger-chau-chau.jpg', 6700, 3));
 productos.push(new productBones('24', 'pant', 'Jogger Dark Matter', 'radiactivo xd', '../assets/img/productos/pantalones/jogger-dark-matter.jpg', 6600, 10));
 
-// const save = (key,value) => {localStorage.setItem(key,value)}
-
-// for (const producto of productos) {
-//     save(producto.id, JSON.stringify(producto))
-// }
-
-// //filtrado
-// filter.addEventListener('change', function () {
-//     if (filter.value == 'Remeras') {
-//         filterValue = 'remera';
-//         filterAction(filterValue);
-//     }
-
-//     if (filter.value == 'Buzos') {
-//         filterValue = 'buzo';
-//         filterAction(filterValue);
-//     }
-
-//     if (filter.value == 'Pantalones') {
-//         filterValue = 'pantalon';
-//         filterAction(filterValue);
-//     }
-// });
-
-// function filterAction(fv) {
-//     let productosFiltered = productos.filter(obj => {
-
-//     });
-//     console.log(productosFiltered);
-// }
-
-
-
-// //ordenado
-// sort.addEventListener('change', function () {
-//     if (sort.value == 'default') {
-//         // productosDefault(sortValue);
-//     }
-
-//     if (sort.value == 'mayor') {
-//         productos.sort(function(a, b) {
-//             if (a.precio < b.precio)
-//             return 1;
-//             if (a.precio > b.precio)
-//             return -1;
-//             return 0;
-//         });
-//     }
-
-//     if (sort.value == 'menor') {
-//         productos.sort(function(a, b) {
-//             if (a.precio < b.precio)
-//             return -1;
-//             if (a.precio > b.precio)
-//             return 1;
-//             return 0;
-//         });
-//     }
-// });
-
 //para mostrar todos los productos en el html
 let productosContainer = document.getElementById('productosContainer');
 
@@ -165,15 +105,6 @@ function addToCart(id) {
     if (cart.some((item) => item.id == id)) {
         //suma 1 al mult del producto
         changeMult('plus', id);
-        Swal.fire({
-            position: 'bottom',
-            html: `<span>sumado al carrito</span>`,
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            backdrop: false,
-            popup: 'animated fadeInUp'
-        })
     }
     //si el producto no esta en el carrito
     else {
@@ -337,67 +268,67 @@ function checkout() {
 
 //funcion para tomar el total y dividirlo en cuotas, con sus recargos
 
-    async function cuotas(subtotal) {
-        keep = true;
-        let ncuotas = 0;
-        let cuotas3 = {
-            totCtas: ((110 * totalnum) / 100).toFixed(2),
-            valorCtas: (((110 * totalnum) / 100) / 3).toFixed(2)
-        }
-        let cuotas6 = {
-            totCtas: ((120 * totalnum) / 100).toFixed(2),
-            valorCtas: (((120 * totalnum) / 100) / 6).toFixed(2)
-        }
-        let cuotas12 = {
-            totCtas: ((140 * totalnum) / 100).toFixed(2),
-            valorCtas: (((140 * totalnum) / 100) / 12).toFixed(2)
-        }
-
-        const { value: cuotasChoice } = await Swal.fire({
-            position: 'center',
-            html: `<span>¿En cuántas cuotas desea abonar?</span>`,
-            input: 'select',
-            inputOptions: {
-                tres: `3 cuotas de $${cuotas3.valorCtas} (total: $${cuotas3.totCtas})`,
-                seis: `6 cuotas de $${cuotas6.valorCtas} (total: $${cuotas6.totCtas})`,
-                doce: `12 cuotas de $${cuotas12.valorCtas} (total: $${cuotas12.totCtas})`
-            },
-            showConfirmButton: true,
-            showCancelButton: true,
-            confirmButtonText: 'Sí',
-            cancelButtonText: 'No',
-            confirmButtonColor: '#e29f29',
-            cancelButtonColor: '#0e1213',
-            backdrop: true,
-            allowOutsideClick: false
-        })
-        switch (cuotasChoice) {
-            case ('tres'):
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Gracias por su compra',
-                    text: `El total es ${cuotas3.totCtas}, a pagar en 3 cuotas de ${cuotas3.valorCtas}.`,
-                    footer: `Será redirigido para abonar.`
-                });
-                clearStorage();
-                break;
-            case ('seis'):
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Gracias por su compra',
-                    text: `El total es ${cuotas6.totCtas}, a pagar en 3 cuotas de ${cuotas6.valorCtas}.`,
-                    footer: `Será redirigido para abonar.`
-                });
-                clearStorage();
-                break;
-            case ('doce'):
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Gracias por su compra',
-                    text: `El total es ${cuotas12.totCtas}, a pagar en 3 cuotas de ${cuotas12.valorCtas}.`,
-                    footer: `Será redirigido para abonar.`
-                });
-                clearStorage();
-                break;
-        }
+async function cuotas(subtotal) {
+    keep = true;
+    let ncuotas = 0;
+    let cuotas3 = {
+        totCtas: ((110 * totalnum) / 100).toFixed(2),
+        valorCtas: (((110 * totalnum) / 100) / 3).toFixed(2)
     }
+    let cuotas6 = {
+        totCtas: ((120 * totalnum) / 100).toFixed(2),
+        valorCtas: (((120 * totalnum) / 100) / 6).toFixed(2)
+    }
+    let cuotas12 = {
+        totCtas: ((140 * totalnum) / 100).toFixed(2),
+        valorCtas: (((140 * totalnum) / 100) / 12).toFixed(2)
+    }
+
+    const { value: cuotasChoice } = await Swal.fire({
+        position: 'center',
+        html: `<span>¿En cuántas cuotas desea abonar?</span>`,
+        input: 'select',
+        inputOptions: {
+            tres: `3 cuotas de $${cuotas3.valorCtas} (total: $${cuotas3.totCtas})`,
+            seis: `6 cuotas de $${cuotas6.valorCtas} (total: $${cuotas6.totCtas})`,
+            doce: `12 cuotas de $${cuotas12.valorCtas} (total: $${cuotas12.totCtas})`
+        },
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+        confirmButtonColor: '#e29f29',
+        cancelButtonColor: '#0e1213',
+        backdrop: true,
+        allowOutsideClick: false
+    })
+    switch (cuotasChoice) {
+        case ('tres'):
+            Swal.fire({
+                icon: 'success',
+                title: 'Gracias por su compra',
+                text: `El total es ${cuotas3.totCtas}, a pagar en 3 cuotas de ${cuotas3.valorCtas}.`,
+                footer: `Será redirigido para abonar.`
+            });
+            clearStorage();
+            break;
+        case ('seis'):
+            Swal.fire({
+                icon: 'success',
+                title: 'Gracias por su compra',
+                text: `El total es ${cuotas6.totCtas}, a pagar en 3 cuotas de ${cuotas6.valorCtas}.`,
+                footer: `Será redirigido para abonar.`
+            });
+            clearStorage();
+            break;
+        case ('doce'):
+            Swal.fire({
+                icon: 'success',
+                title: 'Gracias por su compra',
+                text: `El total es ${cuotas12.totCtas}, a pagar en 3 cuotas de ${cuotas12.valorCtas}.`,
+                footer: `Será redirigido para abonar.`
+            });
+            clearStorage();
+            break;
+    }
+}
