@@ -189,17 +189,16 @@ nav {
 
 //buttons and hyperlinks
 
-
 button {
 	cursor: pointer;
 }
 
 .btn {
 	font-weight: 500;
-	padding: 1.1em;
+	padding: 1.2em;
 	padding-top: 0.6em;
 	padding-bottom: 0.6em;
-	border-radius: $elembr;
+	border-radius: 1.2em;
 	transition: 0.4s;
 	height: min-content;
 }
@@ -382,6 +381,13 @@ $cart-size: 40px;
 	background-color: $color-30;
 }
 
+
+.login-btn {
+	padding: 1.6em;
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
+}
+
 // elements
 
 .box-shadow:hover {
@@ -420,7 +426,6 @@ $cart-size: 40px;
 //sweetalert2
 
 .swal2-popup {
-	font-family: 'Roboto', sans-serif !important;
 	color: #0e1213;
 	border: 1px solid #e4e4e4;
 	border-radius: 5px;

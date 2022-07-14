@@ -1,8 +1,8 @@
 //se puede iniciar y cerrar sesion con el mismo boton
-//si se cierra sesion se borra el localStorage
+//si se cierra sesion se borra el localStorage (informacion de usuario y carrito)
 //se pueden agregar productos al carrito desde el boton agregar o sumando desde el mismo carrito
 //poner el contador del item en el carrito en 0 lo remueve del carrito
-//falta agregar un metodo de filtrado para solo mostrar remeras, buzos o pantalones
+//falta agregar un metodo de filtrado para solo mostrar remeras, buzos o pantalones y
 //ese filtro tambien debe funcionar si se accede desde el home a "remeras" "buzos" o "pantalones"
 
 //sweetalert2 para todos los alerts
@@ -23,77 +23,41 @@ let totalnum = JSON.parse(localStorage.getItem("totalStorage")) || 0;
 let cart = JSON.parse(localStorage.getItem("cartStorage")) || [];
 updateCart();
 
-//constructor de productos
-function productBones(id, tipo, nombre, color, url, precio, stock) {
-    this.id = id;
-    this.tipo = tipo;
-    this.nombre = nombre;
-    this.color = color;
-    this.url = url;
-    this.precio = precio;
-    this.stock = stock;
-}
-
-//remeras
-productos.push(new productBones('01', 'tshirt', 'Remera Kelvin', 'blanca', '../assets/img/productos/remeras/remera-1.jpg', 3200, 100));
-productos.push(new productBones('02', 'tshirt', 'Remera Chaos', 'beige', '../assets/img/productos/remeras/remera-2.jpg', 3500, 50));
-productos.push(new productBones('03', 'tshirt', 'Remera Matter', 'azul marino', '../assets/img/productos/remeras/remera-3.jpg', 3300, 10));
-productos.push(new productBones('04', 'tshirt', 'Remera Disorder', 'amarilla', '../assets/img/productos/remeras/remera-4.jpg', 3100, 3));
-productos.push(new productBones('05', 'tshirt', 'Remera Energy', 'violeta', '../assets/img/productos/remeras/remera-5.jpg', 3300, 80));
-productos.push(new productBones('06', 'tshirt', 'Remera Force', 'verde militar', '../assets/img/productos/remeras/remera-6.jpg', 3000, 12));
-productos.push(new productBones('07', 'tshirt', 'Remera Disrupt', 'rosa', '../assets/img/productos/remeras/remera-7.jpg', 4300, 10));
-productos.push(new productBones('08', 'tshirt', 'Remera Impulse', 'naranja', '../assets/img/productos/remeras/remera-8.jpg', 4700, 5));
-productos.push(new productBones('09', 'tshirt', 'Remera Momentum', 'negra', '../assets/img/productos/remeras/remera-9.jpg', 3600, 1));
-
-//buzos
-productos.push(new productBones('10', 'buzo', 'Buzo Albert', 'verde militar', '../assets/img/productos/buzos/buzo-albert.jpg', 5000, 5));
-productos.push(new productBones('11', 'buzo', 'Buzo Nikola', 'negro', '../assets/img/productos/buzos/buzo-nikola.jpg', 4800, 10));
-productos.push(new productBones('12', 'buzo', 'Buzo Isaac', 'camel oscuro', '../assets/img/productos/buzos/buzo-isaac.jpg', 4900, 3));
-productos.push(new productBones('13', 'buzo', 'Buzo Ludwig', 'blanco', '../assets/img/productos/buzos/buzo-ludwig.jpg', 4300, 5));
-productos.push(new productBones('14', 'buzo', 'Buzo Rankine', 'celeste', '../assets/img/productos/buzos/buzo-rankine.jpg', 4700, 4));
-productos.push(new productBones('15', 'buzo', 'Buzo Rudolf', 'arena', '../assets/img/productos/buzos/buzo-rudolf.jpg', 3600, 102));
-
-
-//pantalones
-productos.push(new productBones('16', 'pant', 'Jogger Kelvin', 'negro', '../assets/img/productos/pantalones/jogger-kelvin.jpg', 5000, 10));
-productos.push(new productBones('17', 'pant', 'Jogger Chaos', 'verde militar', '../assets/img/productos/pantalones/jogger-chaos.jpg', 4800, 5));
-productos.push(new productBones('18', 'pant', 'Jogger Matter', 'azul marino', '../assets/img/productos/pantalones/jogger-matter.jpg', 4900, 4));
-productos.push(new productBones('19', 'pant', 'Jogger Disorder', 'mostaza', '../assets/img/productos/pantalones/jogger-disorder.jpg', 4300, 3));
-productos.push(new productBones('20', 'pant', 'Jogger Energy', 'gris', '../assets/img/productos/pantalones/jogger-energy.jpg', 4700, 4));
-productos.push(new productBones('21', 'pant', 'Jogging Force', 'azul marino', '../assets/img/productos/pantalones/jogging-force.jpg', 3600, 1));
-productos.push(new productBones('22', 'pant', 'Jogger Kelvin Clain test long text', 'violeta', '../assets/img/productos/pantalones/jogger-kelvin-clain.jpg', 6900, 10));
-productos.push(new productBones('23', 'pant', 'Jogger Chau Chau', 'bordó', '../assets/img/productos/pantalones/jogger-chau-chau.jpg', 6700, 3));
-productos.push(new productBones('24', 'pant', 'Jogger Dark Matter', 'radiactivo xd', '../assets/img/productos/pantalones/jogger-dark-matter.jpg', 6600, 10));
+//para mostrar imagen que indique el filtro
+let filterTextContainer = document.getElementById('filterTextContainer');
 
 //para mostrar todos los productos en el html
 let productosContainer = document.getElementById('productosContainer');
 
-//para mostrar imagen que indique el filtro
-let filterTextContainer = document.getElementById('filterTextContainer');
+// peticion para obtener la lista de productos y luego mostrarlos en mi html
+fetch('../json/productlist.json')
+    .then(response => response.json())
+    .then(producto => {
+        producto.forEach(producto => {
+            //muestra todos los productos en el html      
+                let card = document.createElement('div');
+                card.classList.add('card');
+                card.classList.add('bg-color-60');
+                card.classList.add('product--card');
+                card.classList.add('box-shadow');
+                card.classList.add('translate-on-hover');
+            
+                card.innerHTML = `<div class="product--card__img">
+                                    <img src="${producto.url}" alt="${producto.nombre}">
+                                    <p class="color-60 bg-color-30 precio">$${producto.precio}</p>
+                                </div>
+                                <div class="product--card__data">
+                                    <div>
+                                        <h3 class="color-30">${producto.nombre}</h3>
+                                        <h4 class="color-30">${producto.color}</h4>
+                                    </div>
+                                    <button class="btn btn-color-30 alcarro" id="addToCart(${producto.id})" onclick="addToCart(${producto.id})">Al carrito</button>
+                                </div>`;
+                productosContainer.append(card);
+        })
+    })
 
-//muestra todos los productos en el html
-for (const producto of productos) {
 
-    let card = document.createElement('div');
-    card.classList.add('card');
-    card.classList.add('bg-color-60');
-    card.classList.add('product--card');
-    card.classList.add('box-shadow');
-    card.classList.add('translate-on-hover');
-
-    card.innerHTML = `<div class="product--card__img">
-                        <img src="${producto.url}" alt="${producto.nombre}">
-                        <p class="color-60 bg-color-30 precio">$${producto.precio}</p>
-                    </div>
-                    <div class="product--card__data">
-                        <div>
-                            <h3 class="color-30">${producto.nombre}</h3>
-                            <h4 class="color-30">${producto.color}</h4>
-                        </div>
-                        <button class="btn btn-color-30 alcarro" id="addToCart(${producto.id})" onclick="addToCart(${producto.id})">Al carrito</button>
-                    </div>`;
-    productosContainer.append(card)
-};
 
 //agregando parte del indicador de filtrado
 filterTextContainer.innerHTML = `<img src="../assets/structure/todo.svg" alt="Todo" class="productos__vertical--label">`

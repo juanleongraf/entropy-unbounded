@@ -3,6 +3,7 @@ let user;
 let userLStorage = localStorage.getItem('user');
 let loginBtn = document.createElement('a');
 loginBtn.classList.add('btn');
+loginBtn.classList.add('login-btn');
 loginBtn.href = '#';
 
 loginBtn.addEventListener('click', openLogin);
@@ -33,7 +34,7 @@ function openLogin() {
             confirmButtonColor: '#e29f29',
             cancelButtonColor: '#0e1213',
             backdrop: false,
-            allowOutsideClick: false
+            allowOutsideClick: false,
         }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.clear();
@@ -60,7 +61,7 @@ function openLogin() {
                 confirmButtonColor: '#e29f29',
                 cancelButtonColor: '#0e1213',
                 backdrop: false,
-                allowOutsideClick: false
+                allowOutsideClick: false,
             })
             if (userinput) {
                 let str2 = userinput.charAt(0).toUpperCase() + userinput.slice(1).toLowerCase();
