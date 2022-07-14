@@ -7,7 +7,7 @@
 
 //sweetalert2 para todos los alerts
 
-const productos = [];
+let productos = [];
 let filter = document.getElementById('filter');
 let filterValue = 'todo';
 let sort = document.getElementById('sort');
@@ -35,14 +35,14 @@ fetch('../json/productlist.json')
     .then(producto => {
         producto.forEach(producto => {
             //muestra todos los productos en el html      
-                let card = document.createElement('div');
-                card.classList.add('card');
-                card.classList.add('bg-color-60');
-                card.classList.add('product--card');
-                card.classList.add('box-shadow');
-                card.classList.add('translate-on-hover');
-            
-                card.innerHTML = `<div class="product--card__img">
+            let card = document.createElement('div');
+            card.classList.add('card');
+            card.classList.add('bg-color-60');
+            card.classList.add('product--card');
+            card.classList.add('box-shadow');
+            card.classList.add('translate-on-hover');
+
+            card.innerHTML = `<div class="product--card__img">
                                     <img src="${producto.url}" alt="${producto.nombre}">
                                     <p class="color-60 bg-color-30 precio">$${producto.precio}</p>
                                 </div>
@@ -53,7 +53,8 @@ fetch('../json/productlist.json')
                                     </div>
                                     <button class="btn btn-color-30 alcarro" id="addToCart(${producto.id})" onclick="addToCart(${producto.id})">Al carrito</button>
                                 </div>`;
-                productosContainer.append(card);
+            productosContainer.append(card);
+            productos.push(producto)
         })
     })
 
@@ -280,7 +281,7 @@ async function cuotas(subtotal) {
             Swal.fire({
                 icon: 'success',
                 title: 'Gracias por su compra',
-                text: `El total es ${cuotas6.totCtas}, a pagar en 3 cuotas de ${cuotas6.valorCtas}.`,
+                text: `El total es ${cuotas6.totCtas}, a pagar en 6 cuotas de ${cuotas6.valorCtas}.`,
                 footer: `Será redirigido para abonar.`
             });
             clearStorage();
@@ -289,7 +290,7 @@ async function cuotas(subtotal) {
             Swal.fire({
                 icon: 'success',
                 title: 'Gracias por su compra',
-                text: `El total es ${cuotas12.totCtas}, a pagar en 3 cuotas de ${cuotas12.valorCtas}.`,
+                text: `El total es ${cuotas12.totCtas}, a pagar en 12 cuotas de ${cuotas12.valorCtas}.`,
                 footer: `Será redirigido para abonar.`
             });
             clearStorage();
